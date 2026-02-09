@@ -38,7 +38,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
     const createProblemMutation = useMutation({
         mutationFn: (data: FormData) => problemsApi.create(data),
         onSuccess: () => {
-            queryClient.invalidateQueries(['problems']);
+            queryClient.invalidateQueries({ queryKey: ['problems'] });
             reset();
             onClose();
         },
