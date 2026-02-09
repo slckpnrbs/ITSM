@@ -1,0 +1,96 @@
+{
+    "common": {
+        "appName": "ITSM Platform",
+        "loading": "Loading...",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create",
+        "search": "Search",
+        "filter": "Filter",
+        "actions": "Actions",
+        "yes": "Yes",
+        "no": "No",
+        "close": "Close",
+        "submit": "Submit",
+        "back": "Back",
+        "next": "Next"
+    },
+    "auth": {
+        "login": "Login",
+        "logout": "Logout",
+        "register": "Register",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot Password",
+        "username": "Username",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "department": "Department",
+        "loginSuccess": "Login successful",
+        "loginFailed": "Login failed",
+        "logoutSuccess": "Logged out"
+    },
+    "nav": {
+        "dashboard": "Dashboard",
+        "incidents": "Incidents",
+        "serviceRequests": "Service Requests",
+        "problems": "Problems",
+        "changes": "Changes",
+        "projects": "Projects",
+        "assets": "Assets",
+        "knowledgeBase": "Knowledge Base",
+        "reports": "Reports",
+        "settings": "Settings",
+        "users": "Users"
+    },
+    "incident": {
+        "title": "Incident Management",
+        "new": "New Incident",
+        "id": "Incident ID",
+        "subject": "Subject",
+        "description": "Description",
+        "priority": "Priority",
+        "status": "Status",
+        "assignee": "Assignee",
+        "reporter": "Reporter",
+        "createdAt": "Created At",
+        "updatedAt": "Updated At",
+        "sla": "SLA",
+        "dueDate": "Due Date",
+        "priorities": {
+            "low": "Low",
+            "medium": "Medium",
+            "high": "High",
+            "critical": "Critical"
+        },
+        "statuses": {
+            "open": "Open",
+            "inProgress": "In Progress",
+            "pending": "Pending",
+            "resolved": "Resolved",
+            "closed": "Closed"
+        }
+    },
+    "dashboard": {
+        "title": "Welcome",
+        "totalIncidents": "Total Incidents",
+        "openIncidents": "Open Incidents",
+        "slaBreached": "SLA Breached",
+        "resolvedToday": "Resolved Today",
+        "myTasks": "My Tasks",
+        "recentActivity": "Recent Activity"
+    },
+    "settings": {
+        "title": "Settings",
+        "profile": "Profile",
+        "language": "Language",
+        "theme": "Theme",
+        "notifications": "Notifications",
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+    }
+}

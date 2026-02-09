@@ -1,0 +1,41 @@
+version: '3.8'
+
+# Development override - uses hot reload
+services:
+  gateway:
+    build:
+      target: development
+    volumes:
+      - ./services/gateway:/app
+      - /app/node_modules
+    command: npm run start:dev
+
+  auth-service:
+    build:
+      target: development
+    volumes:
+      - ./services/auth-service:/app
+      - /app/node_modules
+    command: npm run start:dev
+
+  incident-service:
+    build:
+      target: development
+    volumes:
+      - ./services/incident-service:/app
+      - /app/node_modules
+    command: npm run start:dev
+
+  notification-service:
+    build:
+      target: development
+    volumes:
+      - ./services/notification-service:/app
+      - /app/node_modules
+    command: npm run start:dev
+
+  frontend:
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host

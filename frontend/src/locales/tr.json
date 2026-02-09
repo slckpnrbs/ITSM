@@ -1,0 +1,96 @@
+{
+    "common": {
+        "appName": "ITSM Platform",
+        "loading": "Yükleniyor...",
+        "save": "Kaydet",
+        "cancel": "İptal",
+        "delete": "Sil",
+        "edit": "Düzenle",
+        "create": "Oluştur",
+        "search": "Ara",
+        "filter": "Filtrele",
+        "actions": "İşlemler",
+        "yes": "Evet",
+        "no": "Hayır",
+        "close": "Kapat",
+        "submit": "Gönder",
+        "back": "Geri",
+        "next": "İleri"
+    },
+    "auth": {
+        "login": "Giriş Yap",
+        "logout": "Çıkış Yap",
+        "register": "Kayıt Ol",
+        "email": "E-posta",
+        "password": "Şifre",
+        "confirmPassword": "Şifre Tekrar",
+        "forgotPassword": "Şifremi Unuttum",
+        "username": "Kullanıcı Adı",
+        "firstName": "Ad",
+        "lastName": "Soyad",
+        "department": "Departman",
+        "loginSuccess": "Giriş başarılı",
+        "loginFailed": "Giriş başarısız",
+        "logoutSuccess": "Çıkış yapıldı"
+    },
+    "nav": {
+        "dashboard": "Kontrol Paneli",
+        "incidents": "Olaylar",
+        "serviceRequests": "Hizmet Talepleri",
+        "problems": "Problemler",
+        "changes": "Değişiklikler",
+        "projects": "Projeler",
+        "assets": "Varlıklar",
+        "knowledgeBase": "Bilgi Bankası",
+        "reports": "Raporlar",
+        "settings": "Ayarlar",
+        "users": "Kullanıcılar"
+    },
+    "incident": {
+        "title": "Olay Yönetimi",
+        "new": "Yeni Olay",
+        "id": "Olay ID",
+        "subject": "Konu",
+        "description": "Açıklama",
+        "priority": "Öncelik",
+        "status": "Durum",
+        "assignee": "Atanan Kişi",
+        "reporter": "Bildiren",
+        "createdAt": "Oluşturulma",
+        "updatedAt": "Güncellenme",
+        "sla": "SLA",
+        "dueDate": "Son Tarih",
+        "priorities": {
+            "low": "Düşük",
+            "medium": "Orta",
+            "high": "Yüksek",
+            "critical": "Kritik"
+        },
+        "statuses": {
+            "open": "Açık",
+            "inProgress": "İşlemde",
+            "pending": "Beklemede",
+            "resolved": "Çözüldü",
+            "closed": "Kapatıldı"
+        }
+    },
+    "dashboard": {
+        "title": "Hoş Geldiniz",
+        "totalIncidents": "Toplam Olay",
+        "openIncidents": "Açık Olay",
+        "slaBreached": "SLA Aşımı",
+        "resolvedToday": "Bugün Çözülen",
+        "myTasks": "Görevlerim",
+        "recentActivity": "Son Aktiviteler"
+    },
+    "settings": {
+        "title": "Ayarlar",
+        "profile": "Profil",
+        "language": "Dil",
+        "theme": "Tema",
+        "notifications": "Bildirimler",
+        "dark": "Koyu",
+        "light": "Açık",
+        "system": "Sistem"
+    }
+}

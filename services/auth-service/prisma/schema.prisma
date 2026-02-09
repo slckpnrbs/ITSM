@@ -1,0 +1,64 @@
+// Prisma schema for Auth Service
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  IT_MANAGER
+  L1_AGENT
+  L2_AGENT
+  L3_AGENT
+  END_USER
+  STAKEHOLDER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  username      String      @unique
+  passwordHash  String      @map("password_hash")
+  firstName     String      @map("first_name")
+  lastName      String      @map("last_name")
+  role          UserRole    @default(END_USER)
+  status        UserStatus  @default(ACTIVE)
+  department    String?
+  phone         String?
+  avatar        String?
+  language      String      @default("tr")
+  ldapDn        String?     @map("ldap_dn")
+  
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  lastLoginAt   DateTime?   @map("last_login_at")
+  
+  sessions      Session[]
+  
+  @@map("users")
+}
+
+model Session {
+  id            String    @id @default(uuid())
+  userId        String    @map("user_id")
+  token         String    @unique
+  expiresAt     DateTime  @map("expires_at")
+  ipAddress     String?   @map("ip_address")
+  userAgent     String?   @map("user_agent")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("sessions")
+}
