@@ -74,6 +74,35 @@
             "closed": "Kapatıldı"
         }
     },
+    "problem": {
+        "title": "Problem Yönetimi",
+        "subtitle": "Problemleri ve kök neden analizlerini yönetin",
+        "new": "Yeni Problem",
+        "id": "Problem ID",
+        "summary": "Özet",
+        "description": "Açıklama",
+        "priority": "Öncelik",
+        "status": "Durum",
+        "assignee": "Atanan Kişi",
+        "createdAt": "Oluşturulma",
+        "linkedIncidents": "Bağlı Olaylar",
+        "rootCause": "Kök Neden",
+        "workaround": "Geçici Çözüm",
+        "noProblems": "Henüz problem bulunmuyor",
+        "createProblem": "Problem Oluştur",
+        "selectIncidents": "Bağlanacak Olayları Seçin",
+        "atLeastOneIncident": "En az bir olay seçilmelidir",
+        "noOpenIncidents": "Açık olay bulunmuyor",
+        "loadingIncidents": "Olaylar yükleniyor...",
+        "searchProblems": "Problemlerde ara...",
+        "statuses": {
+            "open": "Açık",
+            "inProgress": "İnceleniyor",
+            "known": "Bilinen Hata",
+            "resolved": "Çözüldü",
+            "closed": "Kapatıldı"
+        }
+    },
     "dashboard": {
         "title": "Hoş Geldiniz",
         "totalIncidents": "Toplam Olay",

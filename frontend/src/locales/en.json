@@ -74,6 +74,35 @@
             "closed": "Closed"
         }
     },
+    "problem": {
+        "title": "Problem Management",
+        "subtitle": "Manage problems and root cause analysis",
+        "new": "New Problem",
+        "id": "Problem ID",
+        "summary": "Summary",
+        "description": "Description",
+        "priority": "Priority",
+        "status": "Status",
+        "assignee": "Assignee",
+        "createdAt": "Created At",
+        "linkedIncidents": "Linked Incidents",
+        "rootCause": "Root Cause",
+        "workaround": "Workaround",
+        "noProblems": "No problems found",
+        "createProblem": "Create Problem",
+        "selectIncidents": "Select Incidents to Link",
+        "atLeastOneIncident": "At least one incident must be selected",
+        "noOpenIncidents": "No open incidents found",
+        "loadingIncidents": "Loading incidents...",
+        "searchProblems": "Search problems...",
+        "statuses": {
+            "open": "Open",
+            "inProgress": "Investigating",
+            "known": "Known Error",
+            "resolved": "Resolved",
+            "closed": "Closed"
+        }
+    },
     "dashboard": {
         "title": "Welcome",
         "totalIncidents": "Total Incidents",

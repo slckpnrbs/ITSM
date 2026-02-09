@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { problemsApi, incidentsApi } from '../../services/api';
 import { IncidentPriority } from '../../types/problem';
 import { X, Loader2, AlertTriangle } from 'lucide-react';
@@ -18,6 +19,7 @@ interface FormData {
 }
 
 export default function CreateProblemModal({ isOpen, onClose }: CreateProblemModalProps) {
+    const { t } = useTranslation();
     const [error, setError] = useState<string | null>(null);
     const queryClient = useQueryClient();
 
@@ -49,7 +51,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
 
     const onSubmit = (data: FormData) => {
         if (!data.incidentIds || data.incidentIds.length === 0) {
-            setError('At least one incident must be selected');
+            setError(t('problem.atLeastOneIncident'));
             return;
         }
         setError(null);
@@ -62,7 +64,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-700">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Create New Problem</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t('problem.createProblem')}</h2>
                     <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
                         <X className="w-5 h-5 text-gray-500" />
                     </button>
@@ -77,7 +79,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
                     )}
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Summary</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t('problem.summary')}</label>
                         <input
                             {...register('summary', { required: 'Summary is required' })}
                             className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
@@ -87,7 +89,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t('problem.description')}</label>
                         <textarea
                             {...register('description', { required: 'Description is required' })}
                             className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white h-32"
@@ -98,7 +100,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Priority</label>
+                            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t('problem.priority')}</label>
                             <select
                                 {...register('priority')}
                                 className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
@@ -111,12 +113,12 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Linked Incidents (Required)</label>
+                        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t('problem.linkedIncidents')}</label>
                         <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 max-h-48 overflow-y-auto space-y-2">
                             {isLoadingIncidents ? (
-                                <div className="text-center py-2 text-gray-500">Loading incidents...</div>
+                                <div className="text-center py-2 text-gray-500">{t('problem.loadingIncidents')}</div>
                             ) : incidents?.length === 0 ? (
-                                <div className="text-center py-2 text-gray-500">No open incidents found</div>
+                                <div className="text-center py-2 text-gray-500">{t('problem.noOpenIncidents')}</div>
                             ) : (
                                 incidents?.map((incident: any) => (
                                     <label key={incident.id} className="flex items-start gap-3 p-2 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg cursor-pointer">
@@ -143,7 +145,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
                             onClick={onClose}
                             className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
                         >
-                            Cancel
+                            {t('common.cancel')}
                         </button>
                         <button
                             type="submit"
@@ -151,7 +153,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
                             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                         >
                             {createProblemMutation.isPending && <Loader2 className="w-4 h-4 animate-spin" />}
-                            Create Problem
+                            {t('problem.createProblem')}
                         </button>
                     </div>
                 </form>
