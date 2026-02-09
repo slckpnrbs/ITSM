@@ -22,7 +22,7 @@ export class ProxyService {
         const config: AxiosRequestConfig = {
             method,
             url,
-            data: body,
+            ...(body && { data: body }),
             params,
             headers: {
                 ...headers,
