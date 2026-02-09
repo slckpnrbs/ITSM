@@ -1,4 +1,4 @@
-import { Controller, All, Req, Body, Headers, Get, Post, Put, Delete, Patch } from '@nestjs/common';
+import { Controller, All, Req, Body, Headers, Get, Post } from '@nestjs/common';
 import { Request } from 'express';
 import { ProxyService } from './proxy.service';
 
@@ -8,7 +8,6 @@ export class IncidentProxyController {
 
     constructor(private readonly proxyService: ProxyService) { }
 
-    // Root path handlers
     @Get()
     async getAll(
         @Req() req: Request,
@@ -17,7 +16,7 @@ export class IncidentProxyController {
         return this.proxyService.forward(
             this.serviceUrl,
             'GET',
-            '/',
+            '/incidents',
             null,
             { authorization: headers.authorization },
             req.query as Record<string, any>,
@@ -33,27 +32,28 @@ export class IncidentProxyController {
         return this.proxyService.forward(
             this.serviceUrl,
             'POST',
-            '/',
+            '/incidents',
             body,
             { authorization: headers.authorization },
         );
     }
 
-    // Wildcard for sub-paths
     @All('*')
     async proxy(
         @Req() req: Request,
         @Body() body: any,
         @Headers() headers: Record<string, string>,
     ) {
-        const path = req.path.replace('/api/incidents', '');
+        const path = req.path.replace('/api/incidents', '/incidents');
         return this.proxyService.forward(
             this.serviceUrl,
             req.method,
-            path || '/',
-            body,
+            path,
+            req.method === 'GET' ? null : body,
             { authorization: headers.authorization },
+            req.method === 'GET' ? req.query as Record<string, any> : undefined,
         );
     }
 }
+
 

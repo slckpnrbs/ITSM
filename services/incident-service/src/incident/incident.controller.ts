@@ -15,7 +15,7 @@ import { CreateIncidentDto } from './dto/create-incident.dto';
 import { UpdateIncidentDto } from './dto/update-incident.dto';
 import { QueryIncidentDto } from './dto/query-incident.dto';
 
-@Controller()
+@Controller('incidents')
 export class IncidentController {
     constructor(private readonly incidentService: IncidentService) { }
 
