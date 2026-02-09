@@ -20,6 +20,7 @@ export class IncidentProxyController {
             '/',
             null,
             { authorization: headers.authorization },
+            req.query as Record<string, any>,
         );
     }
 

@@ -15,6 +15,7 @@ export class ProxyService {
         path: string,
         body?: any,
         headers?: Record<string, string>,
+        params?: Record<string, any>,
     ) {
         const url = `${serviceUrl}${path}`;
 
@@ -22,6 +23,7 @@ export class ProxyService {
             method,
             url,
             data: body,
+            params,
             headers: {
                 ...headers,
                 'Content-Type': 'application/json',
