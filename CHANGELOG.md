@@ -11,9 +11,13 @@ versiyonlama [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard
 - Docker Compose altyapısı (PostgreSQL, Redis, RabbitMQ)
 - Gateway service (API routing, health check)
 - Auth service (JWT, Prisma, user management)
+- **Incident Service** (CRUD, SLA engine, email trigger)
+- **Notification Service** (WebSocket, email templates)
 - React frontend (Vite, TypeScript, Tailwind)
 - i18n desteği (Türkçe, İngilizce)
 - Login, Dashboard, Incidents sayfaları
+- **Create Incident modal**
+- **Real-time WebSocket notifications**
 - Zustand state management
 - TanStack Query entegrasyonu
 
