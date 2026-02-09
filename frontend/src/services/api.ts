@@ -47,6 +47,7 @@ export const authApi = {
 export const incidentsApi = {
     getAll: (params?: any) => api.get('/incidents', { params }),
     getOne: (id: string) => api.get(`/incidents/${id}`),
+    getStats: () => api.get('/incidents/stats'),
     create: (data: any) => api.post('/incidents', data),
     update: (id: string, data: any) => api.put(`/incidents/${id}`, data),
     delete: (id: string) => api.delete(`/incidents/${id}`),
