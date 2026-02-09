@@ -31,7 +31,7 @@ export default function CreateProblemModal({ isOpen, onClose }: CreateProblemMod
     // Fetch open incidents for linking
     const { data: incidents, isLoading: isLoadingIncidents } = useQuery({
         queryKey: ['incidents', 'open'],
-        queryFn: () => incidentsApi.getAll({ status: 'OPEN' }).then(res => res.data),
+        queryFn: () => incidentsApi.getAll({ status: 'OPEN' }).then(res => res.data.data || []),
         enabled: isOpen,
     });
 
