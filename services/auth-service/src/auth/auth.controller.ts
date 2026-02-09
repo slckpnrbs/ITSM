@@ -5,6 +5,12 @@ import { RegisterDto } from './dto/register.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { Request } from 'express';
 
+interface JwtPayload {
+    userId: string;
+    email: string;
+    role: string;
+}
+
 @Controller()
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
@@ -23,14 +29,16 @@ export class AuthController {
     @Get('me')
     @UseGuards(JwtAuthGuard)
     async getProfile(@Req() req: Request) {
-        return this.authService.getProfile(req.user['userId']);
+        const user = req.user as JwtPayload;
+        return this.authService.getProfile(user.userId);
     }
 
     @Post('logout')
     @UseGuards(JwtAuthGuard)
     @HttpCode(HttpStatus.OK)
     async logout(@Req() req: Request) {
-        return this.authService.logout(req.user['userId']);
+        const user = req.user as JwtPayload;
+        return this.authService.logout(user.userId);
     }
 
     @Get('health')
@@ -42,3 +50,4 @@ export class AuthController {
         };
     }
 }
+
