@@ -29,7 +29,7 @@ const navItems = [
 
 export default function Sidebar() {
     const { t } = useTranslation();
-    const { logout, user } = useAuthStore();
+    const { logout } = useAuthStore();
 
     return (
         <aside className="w-64 bg-white dark:bg-slate-800 shadow-lg flex flex-col">

@@ -1,18 +1,16 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 import {
     AlertTriangle,
     CheckCircle,
     Clock,
-    TrendingUp,
-    Users,
     ArrowUpRight,
     ArrowDownRight,
     Bell,
 } from 'lucide-react';
 import { incidentsApi } from '../services/api';
 import { useWebSocket } from '../services/websocket';
-import { useState, useEffect } from 'react';
 
 export default function DashboardPage() {
     const { t } = useTranslation();
@@ -162,17 +160,17 @@ export default function DashboardPage() {
                         <div className="flex items-center justify-between">
                             <div
                                 className={`w-12 h-12 rounded-lg flex items-center justify-center ${stat.color === 'blue' ? 'bg-blue-100 text-blue-600' :
-                                        stat.color === 'yellow' ? 'bg-yellow-100 text-yellow-600' :
-                                            stat.color === 'red' ? 'bg-red-100 text-red-600' :
-                                                'bg-green-100 text-green-600'
+                                    stat.color === 'yellow' ? 'bg-yellow-100 text-yellow-600' :
+                                        stat.color === 'red' ? 'bg-red-100 text-red-600' :
+                                            'bg-green-100 text-green-600'
                                     }`}
                             >
                                 <stat.icon className="w-6 h-6" />
                             </div>
                             <span
                                 className={`flex items-center text-sm font-medium ${stat.trend === 'up' && stat.color !== 'red' ? 'text-green-500' :
-                                        stat.trend === 'up' && stat.color === 'red' ? 'text-red-500' :
-                                            'text-green-500'
+                                    stat.trend === 'up' && stat.color === 'red' ? 'text-red-500' :
+                                        'text-green-500'
                                     }`}
                             >
                                 {stat.change}
@@ -253,8 +251,8 @@ export default function DashboardPage() {
                                 <div key={index} className="p-4">
                                     <div className="flex items-start gap-3">
                                         <div className={`w-2 h-2 rounded-full mt-2 ${notif.type === 'sla' ? 'bg-red-500' :
-                                                notif.type === 'assigned' ? 'bg-yellow-500' :
-                                                    'bg-green-500'
+                                            notif.type === 'assigned' ? 'bg-yellow-500' :
+                                                'bg-green-500'
                                             }`} />
                                         <div>
                                             <p className="text-sm text-slate-800 dark:text-white">

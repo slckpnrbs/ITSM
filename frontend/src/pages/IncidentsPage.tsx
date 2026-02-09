@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
-import { Plus, Filter, Search, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Plus, Search, AlertTriangle, RefreshCw } from 'lucide-react';
 import { incidentsApi } from '../services/api';
 import CreateIncidentModal from '../components/CreateIncidentModal';
 
