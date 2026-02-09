@@ -8,9 +8,14 @@ versiyonlama [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard
 ## [Unreleased]
 
 ### Added
-- Proje yapısı ve Git workflow kurulumu
-- README.md, CHANGELOG.md, .gitignore dosyaları
-- Conventional commits konfigürasyonu
+- Docker Compose altyapısı (PostgreSQL, Redis, RabbitMQ)
+- Gateway service (API routing, health check)
+- Auth service (JWT, Prisma, user management)
+- React frontend (Vite, TypeScript, Tailwind)
+- i18n desteği (Türkçe, İngilizce)
+- Login, Dashboard, Incidents sayfaları
+- Zustand state management
+- TanStack Query entegrasyonu
 
 ### Changed
 - (Henüz değişiklik yok)
