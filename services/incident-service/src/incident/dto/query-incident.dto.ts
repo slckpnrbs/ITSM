@@ -4,13 +4,13 @@ import { IncidentPriority, IncidentStatus } from '@prisma/client';
 
 export class QueryIncidentDto {
     @IsOptional()
-    @Transform(({ value }) => parseInt(value, 10))
+    @Transform(({ value }) => value !== undefined && value !== null ? parseInt(value, 10) : undefined)
     @IsInt()
     @Min(1)
     page?: number = 1;
 
     @IsOptional()
-    @Transform(({ value }) => parseInt(value, 10))
+    @Transform(({ value }) => value !== undefined && value !== null ? parseInt(value, 10) : undefined)
     @IsInt()
     @Min(1)
     limit?: number = 10;
