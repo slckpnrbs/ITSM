@@ -24,6 +24,14 @@ enum IncidentStatus {
   CLOSED
 }
 
+enum ProblemStatus {
+  OPEN
+  RCA_IN_PROGRESS
+  PENDING
+  RESOLVED
+  CLOSED
+}
+
 enum IncidentCategory {
   HARDWARE
   SOFTWARE
@@ -61,6 +69,10 @@ model Incident {
   // Source
   source          String            @default("web")  // web, email, api
   emailMessageId  String?           @map("email_message_id")
+
+  // Problem Relation
+  problemId       String?           @map("problem_id")
+  problem         Problem?          @relation(fields: [problemId], references: [id])
   
   // Timestamps
   createdAt       DateTime          @default(now()) @map("created_at")
@@ -77,7 +89,41 @@ model Incident {
   @@index([priority])
   @@index([assigneeId])
   @@index([createdAt])
+  @@index([problemId])
   @@map("incidents")
+}
+
+model Problem {
+  id              String            @id @default(uuid())
+  number          String            @unique // PRB-000001
+  summary         String
+  description     String
+  status          ProblemStatus     @default(OPEN)
+  priority        IncidentPriority  @default(MEDIUM)
+  
+  // Analysis
+  rootCause       String?           @map("root_cause")
+  workaround      String?
+  knownError      Boolean           @default(false) @map("known_error")
+
+  // People
+  assigneeId      String?           @map("assignee_id")
+  assigneeName    String?           @map("assignee_name")
+  createdById     String            @map("created_by_id")
+  createdByName   String            @map("created_by_name")
+
+  // Timestamps
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+  resolvedAt      DateTime?         @map("resolved_at")
+  closedAt        DateTime?         @map("closed_at")
+
+  // Relations
+  incidents       Incident[]
+  
+  @@index([status])
+  @@index([priority])
+  @@map("problems")
 }
 
 model SlaDefinition {

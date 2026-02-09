@@ -59,3 +59,12 @@ export const usersApi = {
     getOne: (id: string) => api.get(`/auth/users/${id}`),
     update: (id: string, data: any) => api.put(`/auth/users/${id}`, data),
 };
+// Problems API
+export const problemsApi = {
+    getAll: (params?: any) => api.get('/problems', { params }),
+    getOne: (id: string) => api.get(`/problems/${id}`),
+    create: (data: any) => api.post('/problems', data),
+    update: (id: string, data: any) => api.patch(`/problems/${id}`, data),
+    addIncident: (id: string, incidentId: string) => api.post(`/problems/${id}/incidents`, { incidentId }),
+    removeIncident: (id: string, incidentId: string) => api.delete(`/problems/${id}/incidents/${incidentId}`),
+};

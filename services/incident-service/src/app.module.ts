@@ -9,9 +9,12 @@ import { MessageService } from './message/message.service';
 import { EmailListenerService } from './email/email-listener.service';
 import { PrismaService } from './prisma/prisma.service';
 
+import { ProblemModule } from './problem/problem.module';
+
 @Module({
     imports: [
         ScheduleModule.forRoot(),
+        ProblemModule,
     ],
     controllers: [
         IncidentController,

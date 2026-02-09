@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import IncidentsPage from './pages/IncidentsPage';
+import ProblemPage from './pages/ProblemPage';
 
 function App() {
     const { isAuthenticated } = useAuthStore();
@@ -21,6 +22,7 @@ function App() {
                 <Route index element={<Navigate to="/dashboard" />} />
                 <Route path="dashboard" element={<DashboardPage />} />
                 <Route path="incidents" element={<IncidentsPage />} />
+                <Route path="problems" element={<ProblemPage />} />
             </Route>
         </Routes>
     );
